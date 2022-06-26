@@ -33,6 +33,9 @@ export const Login = () => {
     if (!data.payload) {
       return alert("Не удалось авторизоваться!");
     }
+    if ("token" in data.payload) {
+      window.localStorage.setItem("token", data.payload.token);
+    }
   };
 
   if (isAuth) {
